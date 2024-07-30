@@ -1,0 +1,503 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Noto Sans",Calibri, Helvetica, sans-serif, "Lucida Sans";
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.column-left {
+  width: 60%;
+  height: 100%;
+}
+
+.column-right {
+  width: 40%;
+  height: 100%;
+  border-left: 1px solid #333;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #B8020F;
+  border-bottom: 1px solid #000;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end; /* Align items to the right */
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #E79B9F;
+  color: #333;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #ffe8e7;
+  color: #333;
+}
+
+img.huechange { filter: hue-rotate(-45deg); }
+
+h1 {
+  background-color: #00af91;
+  color: white;
+  border-radius: 0.5em;
+  font-size: 1.25em;
+  font-weight: 700;
+  margin: 0.5em auto;
+  padding: 0.5em;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  width: 90%;
+}
+
+div#my-div {
+  position: absolute;
+  background-color: #B8020F;
+  color: white;
+  border: 1px solid #333;
+  border-radius: 0.3em;
+  font-size: 1em;
+  font-weight: 700;
+  margin: 0.5em auto;
+  padding: 0.5em;
+  width: 40%;
+  text-align: center;
+  text-transform: uppercase;
+  transform: translateX(-25%); /* Center horizontally */
+  z-index: 1000; /* Ensure it floats above the map */
+  top: 1em;
+  left: 20%;
+}
+
+div#station {
+  color: #B8020F;
+  border: 2px solid #333;
+  border-radius: 0.3em;
+  font-size: 1.25em;
+  font-weight: 700;
+  margin: 0.5em auto;
+  padding: 0.5em;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  width: 94%;
+}
+
+#buttonsdiv {
+  position: absolute;
+  text-align: center;
+  /*box-shadow: 0 2px 4px #B8020F;*/
+  box-shadow: 0 4px 6px #005a00;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  bottom: 20px;
+  left: 28%;
+  width: 150px;
+  display: inline-block;
+  transform: translateX(-28%); /* Center horizontally */
+  z-index: 1001; /* Ensure it floats above the map */
+}
+
+#playagain {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  margin: auto;
+  display: inline-block;
+  z-index: 1; /* Ensure it floats above the map */
+}
+
+div#ghostinfo {
+  font-size: 1.1em;
+  padding: 1em;
+  margin: 0;
+}
+
+div#aboutContent {
+  display: none;
+  padding: 1em;
+  font-size: 1.1em;
+}
+
+div#playbutton {
+  text-align: center;
+}
+
+#descripText, #playText{
+  text-align: center;
+}
+
+#playagain{
+  top: 0em;
+  margin: 0;
+  position: relative;
+  text-align: center;
+  width: 98%;
+}
+
+.image-container {
+  text-align: center;
+}
+
+.imglogo {
+  width: 200px;
+  height: 200px;
+}
+
+.button {
+  background-color: #159127;
+  color: white;
+  border: none;
+  font-size: 1.5em;
+  padding: 0.4em 1.2em;
+  box-shadow: 0 4px 6px #005a00;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.button:hover{
+  background-color: #006700;
+}
+.button:active {
+  background-color: #93bd8d;
+  box-shadow: 0 0 2px #005a00;
+  transform: translateY(2px);
+}
+
+.round-6 {
+  border-radius: 0.3em;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 374px;
+  border: 1px solid #555555;
+}
+.imgDescript{
+  display:none;
+}
+.my-button {
+  background-color: #159127;
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: 800;
+  font-style: normal;
+  text-decoration: none;
+  padding: 0.4em 1.2em;
+  display: inline-block;
+  border-radius: 0.3em;
+  box-shadow: 0 4px 6px #005a00;
+  cursor: pointer;
+}
+.my-button:hover {
+  background-color: #006700;
+}
+.my-button:active {
+  transform: scale(0.95);
+}
+
+.leaflet-popup-content-wrapper {
+  background: rgba(193, 41, 46, 0.8); 
+  color: white;
+  border: 2px solid #823329;
+  font-size: 1.2em;
+  font-weight: bold;
+  box-shadow: none !important;
+  border-radius: 0.3em!important;
+}
+.leaflet-popup-tip {
+  width: 0px;
+  height: 0px;
+}
+.leaflet-popup-close-button {
+  display: none;
+}
+
+.perfect {
+  background: rgba(0, 128, 0, 0.8)!important;
+}
+
+.very-good {
+  background: rgba(139, 197, 0, 0.8)!important;
+}
+
+.right-city {
+  background: rgba(202, 180, 0, 0.8)!important;
+}
+
+.close-ish {
+  background: rgba(255, 127, 14, 0.8)!important;
+}
+
+.way-off {
+  background: rgba(255, 0, 0, 0.8)!important;
+}
+
+.playButton {
+  color: rgba(255,255,255,1);
+  text-decoration: none;
+  background-color: #B8020F;
+  font-weight: 700;
+  font-size: 3em;
+  display: block;
+  padding: 4px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+  -moz-box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+  box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+  margin: 100px auto;
+	width: 160px;
+	text-align: center;
+	
+	-webkit-transition: all .1s ease;
+	-moz-transition: all .1s ease;
+	-ms-transition: all .1s ease;
+	-o-transition: all .1s ease;
+	transition: all .1s ease;
+}
+
+.playButton:active {
+    -webkit-box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
+    -moz-box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
+    box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
+    position: relative;
+    top: 6px;
+}
+
+#myProgress {
+  display:none;
+  width: 100%;
+  background-color: #ddd;
+}
+
+#myBar {
+  width: 100%; /* Initial width set to 100% */
+  height: 8px;
+  background-color: #159127; /* Initial color set to green */
+}
+
+canvas {
+  position: absolute;
+  height: 100%;
+  top: 0px;
+  z-index: 1; /* Ensure it floats above the map */  
+    display: block;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0); /* Make the background transparent */
+    width: 60%; /* Set a fixed width */
+     /* Set a fixed height */
+    pointer-events: none; /* Allows interaction with the element below */
+  }
+
+  .contentHideable {
+    display: block;
+  }
+
+  @media (max-width: 480px) {
+    /* Mobile screen adjustments */
+    .container {
+      flex-direction: column; /* Switch to column layout */
+      height: 100vh; /* 100% of the viewport height */
+    }
+
+    .column-left {
+      width: 100%; /* Full width */
+      height: 45vh; /* 60% of the viewport height */
+    }
+
+    .column-right {
+      order: -1; /* Places column-right before column-left */
+      width: 100%; /* Full width */
+      height: 55vh; /* 40% of the viewport height */
+    }
+    div#my-div {
+      display:none;
+      position: absolute;
+      background-color: #B8020F;
+      color: white;
+      border-radius: 0.3em;
+      font-size: 1em;
+      font-weight: 700;
+      padding: 0.5em;
+      width: 250px;
+      text-align: center;
+      text-transform: uppercase;
+      z-index: 1000; /* Ensure it floats above the map */
+      top: 1em;
+      left: 50%; /* Position at 50% from the left */
+      transform: translateX(-50%); /* Center horizontally */
+    }
+    #buttonsdiv {
+      position: absolute;
+      text-align: center;
+      box-shadow: 0 4px 6px #005a00;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      bottom: 2px;
+      left: 50%;
+      width: 100px;
+      display: inline-block;
+      transform: translateX(-50%); /* Center horizontally */
+      z-index: 1001; /* Ensure it floats above the map */
+    }
+
+    div#ghostinfo {
+      font-size: 1em;
+      padding: 0.1em;
+      margin: 0;
+    }
+
+    .imglogo {
+      width: 80px; /* Adjust the width to your preference */
+      height: 80px; /* Adjust the height to your preference */
+    }
+
+    .center {
+      max-width: 300px;
+    }
+
+    .button {
+      font-size: 1.4em;
+      padding: 0.4em 0.8em;
+    }
+
+    .my-button {
+      font-size: 1em;
+    }
+
+    div#station {
+      border: 2px solid #333;
+      font-size: 1.1em;
+    }
+
+    #descripText{
+      margin-top: -6px;
+    }
+
+    .contentHideable {
+      display: block;
+    }
+
+  }
+
+@media (max-width: 800px) {
+
+  div#my-div {
+    position: absolute;
+    background-color: #B8020F;
+    color: white;
+    border: 1px solid #333;
+    border-radius: 0.3em;
+    font-size: 0.8em;
+    font-weight: 700;
+    margin: 0.5em auto;
+    padding: 0.5em;
+    width: 40%;
+    text-align: center;
+    text-transform: uppercase;
+    transform: translateX(-25%); /* Center horizontally */
+    z-index: 1000; /* Ensure it floats above the map */
+    top: 0.1em;
+    left: 20%;
+  }
+  
+  #buttonsdiv {
+    font-size: 0.9em;
+    position: absolute;
+    text-align: center;
+    /*box-shadow: 0 2px 4px #B8020F;*/
+    box-shadow: 0 4px 6px #005a00;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    bottom: 6px;
+    left: 28%;
+    width: 150px;
+    display: inline-block;
+    transform: translateX(-28%); /* Center horizontally */
+    z-index: 1001; /* Ensure it floats above the map */
+  }
+
+  .topnav a {
+    color: white;
+    text-align: center;
+    padding: 8px 10px;
+    text-decoration: none;
+    font-size: 1em;
+  }
+
+  div#station {
+    font-size: 0.9em;
+    padding: 0.2em;
+  }
+
+  div#ghostinfo {
+    font-size: 1em;
+    padding: 0.1em;
+    margin: 0;
+  }
+
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 284px;
+    border: 1px solid #555555;
+  }
+
+  .imglogo {
+    width: 80px; /* Adjust the width to your preference */
+    height: 80px; /* Adjust the height to your preference */
+  }
+
+  #descripText{
+    font-size: 0.9em;
+    margin-top: -6px;
+  }
+
+  #playText{
+    font-size: 0.9em;
+  }
+
+  .playButton {
+    font-size: 1em;
+  }
+
+  div#aboutContent {
+    display: none;
+    font-size: 0.9em;
+    padding: 0.1em;
+  }
+
+  .contentHideable {
+    display: none;
+  }
+
+}
+

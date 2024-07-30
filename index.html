@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geoendevina</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="column-left">
+        <div id="map"></div>
+        <div id="buttonsdiv"></div>
+        <div id="my-div">Geoendevina</div>
+        <canvas id="canvas"></canvas>
+      </div>
+
+      <div class="column-right">
+        <div class="topnav">
+          <a class="active" href="#home" id="home">Joc</a>
+          <a href="#about" id="about">Info</a>
+        </div>
+
+        <div id="station">Geoendevina</div>
+
+        <div id="ghostinfo">
+          <div class="image-container">
+            <img src="https://cdn.glitch.global/7ce42fcf-ec09-449a-b0ee-95e6950fb2c8/weblogo.jpg?v=1721770014264" class="imglogo" alt="Logo" />
+          </div>
+
+          <p id="descripText">
+            Click on the map to indicate the position of what is seen in the
+            image.
+          </p>
+          <p id="playText">
+            Each game has 5 rounds of different images.<br />
+            You have 60 seconds to place the mark.
+          </p>
+
+          <div id="myProgress">
+            <div id="myBar"></div>
+          </div>
+        </div>
+
+        <div id="aboutContent">
+          <p>
+            Geoendevina is a game to test your visual and geographical knowledge
+            of Catalonia.
+          </p>
+          <ul>
+            <li>
+              In this game you will be presented with a series of five images of
+              different places in Catalonia. Your task is to locate each image
+              on the map by clicking on its location in less than 60 seconds.
+            </li>
+            <li class="contentHideable">
+              At the end of the game you will see a summary with the distances
+              between your locations and the correct positions.
+            </li>
+          </ul>
+          <p id="attributionGame">
+            <span id="attributionText"
+              >Game based on
+              <a href="https://backdrop.tripgeo.com/" target="backdrop"
+                >Backdrop</a
+              >
+              de</span
+            >
+            <a href="https://www.tripgeo.com" target="tripgeo"
+              >www.tripgeo.com</a
+            >
+          </p>
+          <p id="contact" class="contentHideable">
+            For any questions, comments or suggestions you can contact at
+            info &#64; explora.cat
+          </p>
+        </div>
+
+        <div id="playbutton">
+          <button class="button round-6" onclick="toPlay()" id="btnPlay">
+            Play
+          </button>
+        </div>
+
+        <div id="playagain"></div>
+      </div>
+    </div>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script type="text/javascript" src="/script.js"></script>
+    <script type="text/javascript" src="/fireworks.js"></script>
+  </body>
+</html>
